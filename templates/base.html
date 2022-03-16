@@ -1,0 +1,45 @@
+
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'basestyle.css'%}">
+{% comment %} <script src="{% static 'login.js'%}"></script> {% endcomment %}
+{% endblock head %}
+<body>
+</body>
+{% comment %} <nav class="navbar">
+    <div class="image"><img src="{% static 'logo.png' %}" alt=""></div>
+    <div class="buttons">
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Pricing</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+        {% if user.is_authenticated %}
+        <div class="signin"><a href='logout'>LOG OUT</a></div>
+        {% else %}
+        <div class="signin"><a href="login">SIGN IN</a></div>
+        <div class="signup"><a href='register'>SIGN UP</a></div>
+        {% endif %}
+    </div>
+
+    
+</nav>
+<div class="mobile-menu">
+    <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Pricing</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Contact</a></li>
+        {% if user.is_authenticated %}
+        <li><div class="signin" style="padding: 0; margin:0;"><a href='logout'>LOG OUT</a></div></li>
+        {% else %}
+        <li><div class="signin" style="padding: 0; margin:0;"><a href="login">SIGN IN</a></div></li>
+        <li><div class="signup" style="padding: 0; margin:0;"><a href='register' style="color: black;">SIGN UP</a></div></li>
+        {% endif %}
+    </ul>
+    
+</div> {% endcomment %}
+
+
+{% block body %}{% endblock body %}

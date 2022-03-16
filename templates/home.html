@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} <script src="{% static 'login.js' %}"></script> {% endcomment %}
+    <title>Home Page</title>
+</head>
+
+<body>
+    {% block body %}
+    {% if user.is_authenticated %}
+    <div class="container">
+        <center class="content">
+            <h1 >Hello {{user.name.title}}</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, animi?</p>
+        </center>
+        
+    </div>
+    {% endif %}
+
+
+
+<center>
+    <button id='btn'>redirect</button>
+</center>
+
+<script>
+    var btn=document.getElementById('btn');
+btn.addEventListener('click', ()=>{
+    console.log('button clicked');
+    fetch('/api/').then((response)=>{
+     return (response.json());
+    }).then((data)=>{
+        {% comment %} btn.innerHTML=data['name']; {% endcomment %}
+        console.log(data)
+    })
+})
+</script>
+
+
+
+
+
+    {% endblock body %}
+</body>
+
+</html>
